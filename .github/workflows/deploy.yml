@@ -49,6 +49,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ecs-demo-task-service
+          service: ecs-demo-task-service-blj2b53n
           cluster: humble-bee-09z3nv
           wait-for-service-stability: true
