@@ -19,6 +19,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+          mask-aws-account-id: true
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -32,16 +33,11 @@ jobs:
           ECR_REPO=ecs-demo
           ECR_URI=$AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$ECR_REPO
 
-          echo "Building Docker image..."
           docker build -t $ECR_REPO ecs-demo/
-
-          echo "Tagging image..."
           docker tag $ECR_REPO:latest $ECR_URI:$IMAGE_TAG
-
-          echo "Pushing image to ECR..."
           docker push $ECR_URI:$IMAGE_TAG
 
-      - name: Render new task definition
+      - name: Render task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
