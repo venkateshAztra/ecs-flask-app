@@ -1,37 +1,21 @@
 {
   "family": "ecs-demo-task",
   "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
   "executionRoleArn": "arn:aws:iam::352029560899:role/ecsTaskExecutionRole",
-  "taskRoleArn": "arn:aws:iam::352029560899:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
       "name": "ecs-demo",
-      "image": "<IMAGE_URI>",
-      "essential": true,
+      "image": "352029560899.dkr.ecr.us-east-1.amazonaws.com/ecs-demo:latest",
       "portMappings": [
         {
           "containerPort": 8080,
-          "hostPort": 8080,
           "protocol": "tcp"
         }
       ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/ecs-demo",
-          "awslogs-region": "us-east-1",
-          "awslogs-stream-prefix": "ecs"
-        }
-      }
+      "essential": true
     }
-  ],
-  "requiresCompatibilities": [
-    "FARGATE"
-  ],
-  "cpu": "256",
-  "memory": "512",
-  "runtimePlatform": {
-    "cpuArchitecture": "X86_64",
-    "operatingSystemFamily": "LINUX"
-  }
+  ]
 }

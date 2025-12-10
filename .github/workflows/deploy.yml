@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # STEP 1: Checkout Code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # STEP 2: Configure AWS Credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -20,23 +22,29 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      # STEP 3: Login to Amazon ECR
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      # STEP 4: Build, Tag, and Push Image
       - name: Build, tag, and push image to ECR
-        id: build-image
         run: |
           IMAGE_TAG=latest
           ECR_REGISTRY=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
           ECR_REPO=ecs-demo
-          docker build -t $ECR_REPO ecs-demo/
-          docker tag $ECR_REPO:latest $ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG
-          docker push $ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG
-        env:
-          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
-      - name: Update task definition with new image
+          echo "Building Docker image..."
+          docker build -t $ECR_REPO ./ecs-demo
+
+          echo "Tagging image..."
+          docker tag $ECR_REPO:latest $ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG
+
+          echo "Pushing to ECR..."
+          docker push $ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG
+
+      # STEP 5: Inject Image into Task Definition
+      - name: Render new task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
@@ -44,7 +52,8 @@ jobs:
           container-name: ecs-demo
           image: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/ecs-demo:latest
 
-      - name: Deploy ECS Service
+      # STEP 6: Deploy to ECS Service
+      - name: Deploy to ECS service
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
