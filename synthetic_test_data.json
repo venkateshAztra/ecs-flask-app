@@ -1,0 +1,583 @@
+[
+  {
+    "testCaseID": "TC001",
+    "description": "Valid test case - User registration",
+    "timestamp": "2022-10-15T08:30:45Z",
+    "request": {
+      "username": "john_doe",
+      "email": "john.doe@example.com",
+      "password": "P@ssw0rd"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "data": {
+        "userId": "USR789012"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC002",
+    "description": "Valid test case - Update user profile",
+    "timestamp": "2022-10-15T09:45:22Z",
+    "request": {
+      "userId": "USR123456",
+      "fullName": "Jane Smith",
+      "age": 30
+    },
+    "response": {
+      "status": "success",
+      "message": "Profile updated successfully",
+      "data": {
+        "userId": "USR123456"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC003",
+    "description": "Valid test case - Create new post",
+    "timestamp": "2022-10-15T10:20:10Z",
+    "request": {
+      "userId": "USR987654",
+      "title": "New Post Title",
+      "content": "Lorem ipsum dolor sit amet"
+    },
+    "response": {
+      "status": "success",
+      "message": "Post created successfully",
+      "data": {
+        "postId": "POST246810"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC004",
+    "description": "Valid test case - Retrieve user details",
+    "timestamp": "2022-10-15T11:55:30Z",
+    "request": {
+      "userId": "USR246810"
+    },
+    "response": {
+      "status": "success",
+      "message": "User details retrieved successfully",
+      "data": {
+        "userId": "USR246810",
+        "fullName": "Alice Johnson",
+        "age": 25
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC005",
+    "description": "Valid test case - Delete post",
+    "timestamp": "2022-10-15T12:40:15Z",
+    "request": {
+      "postId": "POST3691215"
+    },
+    "response": {
+      "status": "success",
+      "message": "Post deleted successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC006",
+    "description": "Valid test case - Search users",
+    "timestamp": "2022-10-15T13:25:50Z",
+    "request": {
+      "searchQuery": "user123"
+    },
+    "response": {
+      "status": "success",
+      "message": "Users found",
+      "data": [
+        {
+          "userId": "USR123456",
+          "fullName": "John Doe",
+          "age": 30
+        },
+        {
+          "userId": "USR789012",
+          "fullName": "Jane Smith",
+          "age": 25
+        }
+      ],
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC007",
+    "description": "Valid test case - Like post",
+    "timestamp": "2022-10-15T14:10:35Z",
+    "request": {
+      "userId": "USR369121",
+      "postId": "POST987654"
+    },
+    "response": {
+      "status": "success",
+      "message": "Post liked successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC008",
+    "description": "Valid test case - Comment on post",
+    "timestamp": "2022-10-15T15:00:20Z",
+    "request": {
+      "userId": "USR654321",
+      "postId": "POST741852",
+      "comment": "Great post!"
+    },
+    "response": {
+      "status": "success",
+      "message": "Comment added successfully",
+      "data": {
+        "commentId": "CMT123456"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC009",
+    "description": "Valid test case - Update post",
+    "timestamp": "2022-10-15T15:45:45Z",
+    "request": {
+      "postId": "POST963258",
+      "title": "Updated Post Title",
+      "content": "Updated content"
+    },
+    "response": {
+      "status": "success",
+      "message": "Post updated successfully",
+      "data": {
+        "postId": "POST963258"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC010",
+    "description": "Valid test case - Reset password",
+    "timestamp": "2022-10-15T16:30:10Z",
+    "request": {
+      "email": "alice.johnson@example.com"
+    },
+    "response": {
+      "status": "success",
+      "message": "Password reset instructions sent",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Valid test case - Create new event",
+    "timestamp": "2022-10-15T17:15:55Z",
+    "request": {
+      "eventName": "Birthday Party",
+      "date": "2022-11-20",
+      "location": "123 Main Street"
+    },
+    "response": {
+      "status": "success",
+      "message": "Event created successfully",
+      "data": {
+        "eventId": "EVNT456789"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC012",
+    "description": "Valid test case - Register for event",
+    "timestamp": "2022-10-15T18:00:30Z",
+    "request": {
+      "userId": "USR987654",
+      "eventId": "EVNT456789"
+    },
+    "response": {
+      "status": "success",
+      "message": "Registered for event successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC013",
+    "description": "Valid test case - Add item to cart",
+    "timestamp": "2022-10-15T18:45:15Z",
+    "request": {
+      "userId": "USR369121",
+      "itemId": "ITEM789012",
+      "quantity": 2
+    },
+    "response": {
+      "status": "success",
+      "message": "Item added to cart successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC014",
+    "description": "Valid test case - Checkout cart",
+    "timestamp": "2022-10-15T19:30:40Z",
+    "request": {
+      "userId": "USR654321"
+    },
+    "response": {
+      "status": "success",
+      "message": "Cart checked out successfully",
+      "data": {
+        "orderId": "ORD123456"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC015",
+    "description": "Valid test case - Add friend",
+    "timestamp": "2022-10-15T20:15:25Z",
+    "request": {
+      "userId": "USR123456",
+      "friendId": "USR789012"
+    },
+    "response": {
+      "status": "success",
+      "message": "Friend added successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC016",
+    "description": "Valid test case - Send message",
+    "timestamp": "2022-10-15T21:00:50Z",
+    "request": {
+      "senderId": "USR369121",
+      "receiverId": "USR654321",
+      "message": "Hello, how are you?"
+    },
+    "response": {
+      "status": "success",
+      "message": "Message sent successfully",
+      "data": {
+        "messageId": "MSG987654"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC017",
+    "description": "Valid test case - Create group",
+    "timestamp": "2022-10-15T21:45:35Z",
+    "request": {
+      "groupName": "Project Team",
+      "members": ["USR123456", "USR789012", "USR369121"]
+    },
+    "response": {
+      "status": "success",
+      "message": "Group created successfully",
+      "data": {
+        "groupId": "GRP369121"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC018",
+    "description": "Valid test case - Add member to group",
+    "timestamp": "2022-10-15T22:30:10Z",
+    "request": {
+      "groupId": "GRP369121",
+      "memberId": "USR654321"
+    },
+    "response": {
+      "status": "success",
+      "message": "Member added to group successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC019",
+    "description": "Valid test case - Create poll",
+    "timestamp": "2022-10-15T23:15:55Z",
+    "request": {
+      "question": "Favorite color?",
+      "options": ["Red", "Blue", "Green"]
+    },
+    "response": {
+      "status": "success",
+      "message": "Poll created successfully",
+      "data": {
+        "pollId": "POLL123456"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC020",
+    "description": "Valid test case - Vote on poll",
+    "timestamp": "2022-10-16T00:00:30Z",
+    "request": {
+      "pollId": "POLL123456",
+      "option": "Blue"
+    },
+    "response": {
+      "status": "success",
+      "message": "Vote recorded successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC021",
+    "description": "Valid test case - Create task",
+    "timestamp": "2022-10-16T00:45:15Z",
+    "request": {
+      "taskName": "Complete project report",
+      "deadline": "2022-11-30",
+      "assignedTo": "USR987654"
+    },
+    "response": {
+      "status": "success",
+      "message": "Task created successfully",
+      "data": {
+        "taskId": "TASK789012"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC022",
+    "description": "Valid test case - Mark task as completed",
+    "timestamp": "2022-10-16T01:30:40Z",
+    "request": {
+      "taskId": "TASK789012"
+    },
+    "response": {
+      "status": "success",
+      "message": "Task marked as completed",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC023",
+    "description": "Valid test case - Create appointment",
+    "timestamp": "2022-10-16T02:15:25Z",
+    "request": {
+      "dateTime": "2022-11-10T09:00:00",
+      "description": "Meeting with client"
+    },
+    "response": {
+      "status": "success",
+      "message": "Appointment created successfully",
+      "data": {
+        "appointmentId": "APPT369121"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC024",
+    "description": "Valid test case - Cancel appointment",
+    "timestamp": "2022-10-16T03:00:50Z",
+    "request": {
+      "appointmentId": "APPT369121"
+    },
+    "response": {
+      "status": "success",
+      "message": "Appointment canceled successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC025",
+    "description": "Valid test case - Create invoice",
+    "timestamp": "2022-10-16T03:45:35Z",
+    "request": {
+      "customerId": "USR123456",
+      "amount": 100.50
+    },
+    "response": {
+      "status": "success",
+      "message": "Invoice created successfully",
+      "data": {
+        "invoiceId": "INV987654"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC026",
+    "description": "Valid test case - Pay invoice",
+    "timestamp": "2022-10-16T04:30:10Z",
+    "request": {
+      "invoiceId": "INV987654",
+      "paymentMethod": "Credit Card",
+      "amountPaid": 100.50
+    },
+    "response": {
+      "status": "success",
+      "message": "Invoice paid successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC027",
+    "description": "Valid test case - Create reservation",
+    "timestamp": "2022-10-16T05:15:55Z",
+    "request": {
+      "userId": "USR369121",
+      "roomType": "Suite",
+      "checkInDate": "2022-11-05",
+      "checkOutDate": "2022-11-10"
+    },
+    "response": {
+      "status": "success",
+      "message": "Reservation created successfully",
+      "data": {
+        "reservationId": "RES123456"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC028",
+    "description": "Valid test case - Cancel reservation",
+    "timestamp": "2022-10-16T06:00:30Z",
+    "request": {
+      "reservationId": "RES123456"
+    },
+    "response": {
+      "status": "success",
+      "message": "Reservation canceled successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC029",
+    "description": "Valid test case - Create playlist",
+    "timestamp": "2022-10-16T06:45:15Z",
+    "request": {
+      "userId": "USR654321",
+      "name": "Workout Mix",
+      "songs": ["Song1", "Song2", "Song3"]
+    },
+    "response": {
+      "status": "success",
+      "message": "Playlist created successfully",
+      "data": {
+        "playlistId": "PLST369121"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC030",
+    "description": "Valid test case - Share playlist",
+    "timestamp": "2022-10-16T07:30:40Z",
+    "request": {
+      "userId": "USR987654",
+      "playlistId": "PLST369121",
+      "recipientId": "USR123456"
+    },
+    "response": {
+      "status": "success",
+      "message": "Playlist shared successfully",
+      "data": null,
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC031",
+    "description": "Valid test case - Create recipe",
+    "timestamp": "2022-10-16T08:15:25Z",
+    "request": {
+      "name": "Pasta Carbonara",
+      "ingredients": ["Pasta", "Eggs", "Bacon"],
+      "instructions": "Cook pasta, fry bacon, mix with eggs"
+    },
+    "response": {
+      "status": "success",
+      "message": "Recipe created successfully",
+      "data": {
+        "recipeId": "RCPE987654"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  }
+]

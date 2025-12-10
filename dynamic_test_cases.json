@@ -1,0 +1,288 @@
+[
+  {
+    "testCaseID": "TC001",
+    "description": "Valid test case",
+    "request": {
+      "username": "9FMHNTT4nAF79tw",
+      "password": "Cn6@WatLRB53cT",
+      "email": "woodmathew@example.net",
+      "age": 80,
+      "deviceID": "DSjTIOJ15a",
+      "uuid": "e274bf54-be95-4723-a876-f4e42509f37b"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "data": {
+        "userId": "USR222380"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC002",
+    "description": "Valid test case",
+    "request": {
+      "username": "wbXFWA2RVloDCrj",
+      "password": "So4$Q0zueRPgixj",
+      "email": "perezdenise@example.org",
+      "age": 87,
+      "deviceID": "tVnXexYTHk",
+      "uuid": "31eb1230-e8b9-45da-913b-75e6892ee498"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "data": {
+        "userId": "USR469522"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC003",
+    "description": "Valid test case",
+    "request": {
+      "username": "ZZ1wrevR",
+      "password": "Fc3%X1loDf",
+      "email": "michaelcrane@example.com",
+      "age": 69,
+      "deviceID": "Nsq1Wko6T7",
+      "uuid": "798783b0-c79e-4462-9ff7-e83a423fb16d"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "data": {
+        "userId": "USR694500"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC004",
+    "description": "Valid test case",
+    "request": {
+      "username": "G9XZByLxxPSbRXx",
+      "password": "Rk6*fPck",
+      "email": "hernandeztodd@example.net",
+      "age": 36,
+      "deviceID": "MHmVjlKVZQ",
+      "uuid": "78028b82-be6d-4275-98bc-4991aa114fb6"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "data": {
+        "userId": "USR927387"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC005",
+    "description": "Valid test case",
+    "request": {
+      "username": "kldaBgbXF",
+      "password": "Ua5@a52F2Ij0mz",
+      "email": "mbrown@example.com",
+      "age": 67,
+      "deviceID": "23nvrEg6tp",
+      "uuid": "955b6ee8-8320-4b19-8542-312cb739731c"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "data": {
+        "userId": "USR131574"
+      },
+      "errors": [],
+      "statusCode": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC006",
+    "description": "Invalid (boundary)",
+    "request": {
+      "username": "aaaaaaaaaaaaaaaaaaaa",
+      "password": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+      "email": "aaaaaaaaaaaaaaaaaaaa",
+      "age": 100,
+      "deviceID": "aaaaaaaaaaaaaaa",
+      "uuid": "aaaaaaaaaaaaaaaaaaaa"
+    },
+    "response": {
+      "status": "Failed",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Max length is 15"
+        },
+        {
+          "field": "password",
+          "message": "Max length is 20"
+        },
+        {
+          "field": "email",
+          "message": "Invalid email format"
+        },
+        {
+          "field": "age",
+          "message": "Maximum is 99"
+        },
+        {
+          "field": "deviceID",
+          "message": "Max length is 10"
+        },
+        {
+          "field": "uuid",
+          "message": "Invalid UUID format"
+        },
+        {
+          "field": "uuid",
+          "message": "Length must be 36"
+        }
+      ],
+      "statusCode": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC007",
+    "description": "Invalid (equivalence)",
+    "request": {
+      "username": "",
+      "password": "",
+      "email": "",
+      "age": -1,
+      "deviceID": "",
+      "uuid": ""
+    },
+    "response": {
+      "status": "Failed",
+      "errors": [
+        {
+          "field": "username",
+          "message": "username is required"
+        },
+        {
+          "field": "password",
+          "message": "password is required"
+        },
+        {
+          "field": "email",
+          "message": "email is required"
+        },
+        {
+          "field": "age",
+          "message": "Minimum is 18"
+        },
+        {
+          "field": "deviceID",
+          "message": "deviceID is required"
+        },
+        {
+          "field": "uuid",
+          "message": "uuid is required"
+        }
+      ],
+      "statusCode": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC008",
+    "description": "Invalid (error_guessing)",
+    "request": {
+      "username": "@@invalid@@",
+      "password": "@@invalid@@",
+      "email": "@@invalid@@",
+      "age": "NaN",
+      "deviceID": "@@invalid@@",
+      "uuid": "@@invalid@@"
+    },
+    "response": {
+      "status": "Failed",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Must be alphanumeric"
+        },
+        {
+          "field": "age",
+          "message": "Must be an integer"
+        },
+        {
+          "field": "deviceID",
+          "message": "Must be alphanumeric"
+        },
+        {
+          "field": "deviceID",
+          "message": "Max length is 10"
+        },
+        {
+          "field": "uuid",
+          "message": "Invalid UUID format"
+        },
+        {
+          "field": "uuid",
+          "message": "Length must be 36"
+        }
+      ],
+      "statusCode": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC009",
+    "description": "Invalid (decision)",
+    "request": {
+      "username": null,
+      "password": null,
+      "email": null,
+      "age": null,
+      "deviceID": null,
+      "uuid": null
+    },
+    "response": {
+      "status": "Failed",
+      "errors": [
+        {
+          "field": "username",
+          "message": "username is required"
+        },
+        {
+          "field": "password",
+          "message": "password is required"
+        },
+        {
+          "field": "email",
+          "message": "email is required"
+        },
+        {
+          "field": "age",
+          "message": "age is required"
+        },
+        {
+          "field": "deviceID",
+          "message": "deviceID is required"
+        },
+        {
+          "field": "uuid",
+          "message": "uuid is required"
+        }
+      ],
+      "statusCode": 400
+    },
+    "expectedResult": "Failure"
+  }
+]

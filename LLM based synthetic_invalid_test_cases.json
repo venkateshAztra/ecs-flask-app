@@ -1,0 +1,1474 @@
+[
+  {
+    "testCaseID": "TC_INVALID_001",
+    "description": "Special characters not allowed",
+    "timestamp": "2025-08-06T12:45:25.596735",
+    "request": {
+      "username": "user@@",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "6b7f12e2-efc9-4f70-a086-a809530744c4"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Special characters not allowed"
+        }
+      ],
+      "data": null,
+      "statusCode": 400
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_002",
+    "description": "Missing password",
+    "timestamp": "2025-08-06T12:45:25.596786",
+    "request": {
+      "username": "validuser01",
+      "password": null,
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "be8e1e57-a43a-432d-9efc-8da1259c2353"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "password",
+          "message": "Missing password"
+        }
+      ],
+      "data": null,
+      "statusCode": 401
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_003",
+    "description": "Invalid data type; Too long; Below minimum age",
+    "timestamp": "2025-08-06T12:45:25.596810",
+    "request": {
+      "username": "toolongusername123456",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 17,
+      "deviceID": "abc123xyz0",
+      "uuid": "261e60d9-3b40-48d7-88de-aa96f84cb3e4"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "age",
+          "message": "Invalid data type"
+        },
+        {
+          "field": "username",
+          "message": "Too long"
+        },
+        {
+          "field": "age",
+          "message": "Below minimum age"
+        }
+      ],
+      "data": null,
+      "statusCode": 403
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_004",
+    "description": "Malformed UUID",
+    "timestamp": "2025-08-06T12:45:25.596825",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "not-a-uuid"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Malformed UUID"
+        }
+      ],
+      "data": null,
+      "statusCode": 404
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_005",
+    "description": "Malformed UUID",
+    "timestamp": "2025-08-06T12:45:25.596838",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "not-a-uuid"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Malformed UUID"
+        }
+      ],
+      "data": null,
+      "statusCode": 409
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_006",
+    "description": "Empty email; Too long",
+    "timestamp": "2025-08-06T12:45:25.596856",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "",
+      "age": 30,
+      "deviceID": "toolongdeviceID12345",
+      "uuid": "8492635b-4995-4c2e-bc31-c70aee88ff94"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "email",
+          "message": "Empty email"
+        },
+        {
+          "field": "deviceID",
+          "message": "Too long"
+        }
+      ],
+      "data": null,
+      "statusCode": 422
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_007",
+    "description": "Special characters not allowed; Too long; Too short",
+    "timestamp": "2025-08-06T12:45:25.596879",
+    "request": {
+      "username": "toolongusername123456",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc",
+      "uuid": "e0cdc36c-092c-47ff-9ffc-06f3c3ddcb29"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "deviceID",
+          "message": "Special characters not allowed"
+        },
+        {
+          "field": "username",
+          "message": "Too long"
+        },
+        {
+          "field": "deviceID",
+          "message": "Too short"
+        }
+      ],
+      "data": null,
+      "statusCode": 429
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_008",
+    "description": "Missing password; Empty email",
+    "timestamp": "2025-08-06T12:45:25.596895",
+    "request": {
+      "username": "validuser01",
+      "password": null,
+      "email": "",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "67505d79-a072-4829-b872-f94c6c1d9d6b"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "password",
+          "message": "Missing password"
+        },
+        {
+          "field": "email",
+          "message": "Empty email"
+        }
+      ],
+      "data": null,
+      "statusCode": 500
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_009",
+    "description": "Password is empty; Special characters not allowed; Username is empty",
+    "timestamp": "2025-08-06T12:45:25.596910",
+    "request": {
+      "username": "",
+      "password": "",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "4dc7f812-e058-4de5-b10a-07c310302a02"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "password",
+          "message": "Password is empty"
+        },
+        {
+          "field": "username",
+          "message": "Special characters not allowed"
+        },
+        {
+          "field": "username",
+          "message": "Username is empty"
+        }
+      ],
+      "data": null,
+      "statusCode": 501
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_010",
+    "description": "Special characters not allowed; Too long",
+    "timestamp": "2025-08-06T12:45:25.596921",
+    "request": {
+      "username": "toolongusername123456",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "fd149897-2329-42c2-9ef1-5ba782a07561"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Special characters not allowed"
+        },
+        {
+          "field": "username",
+          "message": "Too long"
+        }
+      ],
+      "data": null,
+      "statusCode": 503
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_011",
+    "description": "Invalid data type",
+    "timestamp": "2025-08-06T12:45:25.596931",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": "twenty",
+      "deviceID": "abc123xyz0",
+      "uuid": "16017959-106e-4c53-81d9-58001f249199"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "age",
+          "message": "Invalid data type"
+        }
+      ],
+      "data": null,
+      "statusCode": 400
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_012",
+    "description": "Too long",
+    "timestamp": "2025-08-06T12:45:25.596942",
+    "request": {
+      "username": "toolongusername123456",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "2452ed1a-941d-48a9-b15f-e77b21e0eae7"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Too long"
+        }
+      ],
+      "data": null,
+      "statusCode": 401
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_013",
+    "description": "Invalid domain",
+    "timestamp": "2025-08-06T12:45:25.596955",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "no.domain@",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "560416df-8be5-4f84-b62a-bb3e9d9c24c2"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "email",
+          "message": "Invalid domain"
+        }
+      ],
+      "data": null,
+      "statusCode": 403
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_014",
+    "description": "Missing UUID; Above maximum age",
+    "timestamp": "2025-08-06T12:45:25.596966",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 100,
+      "deviceID": "abc123xyz0",
+      "uuid": null
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Missing UUID"
+        },
+        {
+          "field": "age",
+          "message": "Above maximum age"
+        }
+      ],
+      "data": null,
+      "statusCode": 404
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_015",
+    "description": "Too long",
+    "timestamp": "2025-08-06T12:45:25.596975",
+    "request": {
+      "username": "toolongusername123456",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "4ce13f82-2dbd-4a3f-979d-1f65278aee4b"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Too long"
+        }
+      ],
+      "data": null,
+      "statusCode": 409
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_016",
+    "description": "Too long; Missing UUID",
+    "timestamp": "2025-08-06T12:45:25.596989",
+    "request": {
+      "username": "toolongusername123456",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": null
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Too long"
+        },
+        {
+          "field": "uuid",
+          "message": "Missing UUID"
+        }
+      ],
+      "data": null,
+      "statusCode": 422
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_017",
+    "description": "Missing @; Empty email; Too short",
+    "timestamp": "2025-08-06T12:45:25.597001",
+    "request": {
+      "username": "usr",
+      "password": "StrongPass123",
+      "email": "",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "339d1049-d878-4576-9adf-8086b08553aa"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "email",
+          "message": "Missing @"
+        },
+        {
+          "field": "email",
+          "message": "Empty email"
+        },
+        {
+          "field": "username",
+          "message": "Too short"
+        }
+      ],
+      "data": null,
+      "statusCode": 429
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_018",
+    "description": "Too long",
+    "timestamp": "2025-08-06T12:45:25.597013",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "toolongdeviceID12345",
+      "uuid": "d37aae05-69dd-491b-91af-6fed37bcdb96"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "deviceID",
+          "message": "Too long"
+        }
+      ],
+      "data": null,
+      "statusCode": 500
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_019",
+    "description": "Too short; Invalid domain; Username is empty",
+    "timestamp": "2025-08-06T12:45:25.597025",
+    "request": {
+      "username": "",
+      "password": "StrongPass123",
+      "email": "no.domain@",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "cdce3a50-ac52-4463-ba45-7ff9614f72a8"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Too short"
+        },
+        {
+          "field": "email",
+          "message": "Invalid domain"
+        },
+        {
+          "field": "username",
+          "message": "Username is empty"
+        }
+      ],
+      "data": null,
+      "statusCode": 501
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_020",
+    "description": "Too long",
+    "timestamp": "2025-08-06T12:45:25.597034",
+    "request": {
+      "username": "toolongusername123456",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "9b55fd9b-3935-4199-8ef3-b8abbcdf67ce"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Too long"
+        }
+      ],
+      "data": null,
+      "statusCode": 503
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_021",
+    "description": "Missing @; Below minimum age",
+    "timestamp": "2025-08-06T12:45:25.597045",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "missingatsign.com",
+      "age": 17,
+      "deviceID": "abc123xyz0",
+      "uuid": "a8c5e30e-7339-4b18-84ee-61f22e379487"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "email",
+          "message": "Missing @"
+        },
+        {
+          "field": "age",
+          "message": "Below minimum age"
+        }
+      ],
+      "data": null,
+      "statusCode": 400
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_022",
+    "description": "Password is empty",
+    "timestamp": "2025-08-06T12:45:25.597057",
+    "request": {
+      "username": "validuser01",
+      "password": "",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "1a7173a4-bf01-4e7b-8475-0e79fa2f3500"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "password",
+          "message": "Password is empty"
+        }
+      ],
+      "data": null,
+      "statusCode": 401
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_023",
+    "description": "Above maximum age",
+    "timestamp": "2025-08-06T12:45:25.597067",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 100,
+      "deviceID": "abc123xyz0",
+      "uuid": "d9443b43-0945-4421-8eee-e918206a8fbf"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "age",
+          "message": "Above maximum age"
+        }
+      ],
+      "data": null,
+      "statusCode": 403
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_024",
+    "description": "Special characters not allowed",
+    "timestamp": "2025-08-06T12:45:25.597077",
+    "request": {
+      "username": "user@@",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "5c990bb1-b173-4c32-9c20-2a985946e670"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Special characters not allowed"
+        }
+      ],
+      "data": null,
+      "statusCode": 404
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_025",
+    "description": "Too short",
+    "timestamp": "2025-08-06T12:45:25.597089",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc",
+      "uuid": "925473e5-3d86-4c52-8c06-ca8edcd0408d"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "deviceID",
+          "message": "Too short"
+        }
+      ],
+      "data": null,
+      "statusCode": 409
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_026",
+    "description": "Malformed UUID",
+    "timestamp": "2025-08-06T12:45:25.597099",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "not-a-uuid"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Malformed UUID"
+        }
+      ],
+      "data": null,
+      "statusCode": 422
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_027",
+    "description": "Malformed UUID; Empty UUID; Missing @",
+    "timestamp": "2025-08-06T12:45:25.597110",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "missingatsign.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": ""
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Malformed UUID"
+        },
+        {
+          "field": "uuid",
+          "message": "Empty UUID"
+        },
+        {
+          "field": "email",
+          "message": "Missing @"
+        }
+      ],
+      "data": null,
+      "statusCode": 429
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_028",
+    "description": "Missing UUID",
+    "timestamp": "2025-08-06T12:45:25.597120",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": null
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Missing UUID"
+        }
+      ],
+      "data": null,
+      "statusCode": 500
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_029",
+    "description": "Too short; Invalid data type",
+    "timestamp": "2025-08-06T12:45:25.597130",
+    "request": {
+      "username": "validuser01",
+      "password": "short",
+      "email": "valid.user@example.com",
+      "age": "twenty",
+      "deviceID": "abc123xyz0",
+      "uuid": "5014657e-2285-4943-add0-6ba5f650f507"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "password",
+          "message": "Too short"
+        },
+        {
+          "field": "age",
+          "message": "Invalid data type"
+        }
+      ],
+      "data": null,
+      "statusCode": 501
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_030",
+    "description": "Missing UUID; Malformed UUID",
+    "timestamp": "2025-08-06T12:45:25.597141",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "not-a-uuid"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Missing UUID"
+        },
+        {
+          "field": "uuid",
+          "message": "Malformed UUID"
+        }
+      ],
+      "data": null,
+      "statusCode": 503
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_031",
+    "description": "Username is empty; Missing UUID; Missing password",
+    "timestamp": "2025-08-06T12:45:25.597154",
+    "request": {
+      "username": "",
+      "password": null,
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": null
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Username is empty"
+        },
+        {
+          "field": "uuid",
+          "message": "Missing UUID"
+        },
+        {
+          "field": "password",
+          "message": "Missing password"
+        }
+      ],
+      "data": null,
+      "statusCode": 400
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_032",
+    "description": "Missing UUID; Too long; Below minimum age",
+    "timestamp": "2025-08-06T12:45:25.597168",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 17,
+      "deviceID": "toolongdeviceID12345",
+      "uuid": null
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Missing UUID"
+        },
+        {
+          "field": "deviceID",
+          "message": "Too long"
+        },
+        {
+          "field": "age",
+          "message": "Below minimum age"
+        }
+      ],
+      "data": null,
+      "statusCode": 401
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_033",
+    "description": "Above maximum age",
+    "timestamp": "2025-08-06T12:45:25.597178",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 100,
+      "deviceID": "abc123xyz0",
+      "uuid": "0413d807-907f-4b18-abc1-481ab7905420"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "age",
+          "message": "Above maximum age"
+        }
+      ],
+      "data": null,
+      "statusCode": 403
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_034",
+    "description": "Empty UUID",
+    "timestamp": "2025-08-06T12:45:25.597190",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": ""
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Empty UUID"
+        }
+      ],
+      "data": null,
+      "statusCode": 404
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_035",
+    "description": "Empty email",
+    "timestamp": "2025-08-06T12:45:25.597202",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "d68a16e0-e247-4e06-af2d-b2537f3703b9"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "email",
+          "message": "Empty email"
+        }
+      ],
+      "data": null,
+      "statusCode": 409
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_036",
+    "description": "Too long; Missing @",
+    "timestamp": "2025-08-06T12:45:25.597213",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "missingatsign.com",
+      "age": 30,
+      "deviceID": "toolongdeviceID12345",
+      "uuid": "e8aa47c5-0d5d-4423-a15d-0679e0d3bd2e"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "deviceID",
+          "message": "Too long"
+        },
+        {
+          "field": "email",
+          "message": "Missing @"
+        }
+      ],
+      "data": null,
+      "statusCode": 422
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_037",
+    "description": "Missing @; Username is empty; Invalid data type",
+    "timestamp": "2025-08-06T12:45:25.597223",
+    "request": {
+      "username": "",
+      "password": "StrongPass123",
+      "email": "missingatsign.com",
+      "age": "twenty",
+      "deviceID": "abc123xyz0",
+      "uuid": "52f2c233-27f7-43ad-be03-0865dea31279"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "email",
+          "message": "Missing @"
+        },
+        {
+          "field": "username",
+          "message": "Username is empty"
+        },
+        {
+          "field": "age",
+          "message": "Invalid data type"
+        }
+      ],
+      "data": null,
+      "statusCode": 429
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_038",
+    "description": "Invalid data type; Empty email; Empty UUID",
+    "timestamp": "2025-08-06T12:45:25.597234",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "",
+      "age": "twenty",
+      "deviceID": "abc123xyz0",
+      "uuid": ""
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "age",
+          "message": "Invalid data type"
+        },
+        {
+          "field": "email",
+          "message": "Empty email"
+        },
+        {
+          "field": "uuid",
+          "message": "Empty UUID"
+        }
+      ],
+      "data": null,
+      "statusCode": 500
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_039",
+    "description": "Too long; Password is empty",
+    "timestamp": "2025-08-06T12:45:25.597245",
+    "request": {
+      "username": "toolongusername123456",
+      "password": "",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "4dad59e4-5606-41cd-8b97-fb6a6091ffca"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Too long"
+        },
+        {
+          "field": "password",
+          "message": "Password is empty"
+        }
+      ],
+      "data": null,
+      "statusCode": 501
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_040",
+    "description": "Too short; Above maximum age; Special characters not allowed",
+    "timestamp": "2025-08-06T12:45:25.597258",
+    "request": {
+      "username": "usr",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 100,
+      "deviceID": "invalid##ID",
+      "uuid": "88ed803c-348f-4a9b-865c-a62166281709"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Too short"
+        },
+        {
+          "field": "age",
+          "message": "Above maximum age"
+        },
+        {
+          "field": "deviceID",
+          "message": "Special characters not allowed"
+        }
+      ],
+      "data": null,
+      "statusCode": 503
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_041",
+    "description": "Missing password; Too short",
+    "timestamp": "2025-08-06T12:45:25.597276",
+    "request": {
+      "username": "validuser01",
+      "password": null,
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc",
+      "uuid": "f821ff75-3b85-4b2f-a1cb-fb5f915b83ad"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "password",
+          "message": "Missing password"
+        },
+        {
+          "field": "deviceID",
+          "message": "Too short"
+        }
+      ],
+      "data": null,
+      "statusCode": 400
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_042",
+    "description": "Too long; Special characters not allowed; Too short",
+    "timestamp": "2025-08-06T12:45:25.597287",
+    "request": {
+      "username": "validuser01",
+      "password": "short",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "invalid##ID",
+      "uuid": "28dbf235-2059-4f09-92e3-f2a54be11e59"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "deviceID",
+          "message": "Too long"
+        },
+        {
+          "field": "deviceID",
+          "message": "Special characters not allowed"
+        },
+        {
+          "field": "password",
+          "message": "Too short"
+        }
+      ],
+      "data": null,
+      "statusCode": 401
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_043",
+    "description": "Empty UUID; Password is empty; Special characters not allowed",
+    "timestamp": "2025-08-06T12:45:25.597299",
+    "request": {
+      "username": "user@@",
+      "password": "",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": ""
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Empty UUID"
+        },
+        {
+          "field": "password",
+          "message": "Password is empty"
+        },
+        {
+          "field": "username",
+          "message": "Special characters not allowed"
+        }
+      ],
+      "data": null,
+      "statusCode": 403
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_044",
+    "description": "Special characters not allowed; Username is empty",
+    "timestamp": "2025-08-06T12:45:25.597309",
+    "request": {
+      "username": "",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "invalid##ID",
+      "uuid": "37f2104b-eab2-4cad-810c-a03e6b94f475"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "deviceID",
+          "message": "Special characters not allowed"
+        },
+        {
+          "field": "username",
+          "message": "Username is empty"
+        }
+      ],
+      "data": null,
+      "statusCode": 404
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_045",
+    "description": "Missing UUID",
+    "timestamp": "2025-08-06T12:45:25.597322",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": null
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "uuid",
+          "message": "Missing UUID"
+        }
+      ],
+      "data": null,
+      "statusCode": 409
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_046",
+    "description": "Above maximum age; Empty UUID",
+    "timestamp": "2025-08-06T12:45:25.597395",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 100,
+      "deviceID": "abc123xyz0",
+      "uuid": ""
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "age",
+          "message": "Above maximum age"
+        },
+        {
+          "field": "uuid",
+          "message": "Empty UUID"
+        }
+      ],
+      "data": null,
+      "statusCode": 422
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_047",
+    "description": "Below minimum age",
+    "timestamp": "2025-08-06T12:45:25.597424",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 17,
+      "deviceID": "abc123xyz0",
+      "uuid": "66dde8d2-8e47-42ae-b220-1e9a5f79de5d"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "age",
+          "message": "Below minimum age"
+        }
+      ],
+      "data": null,
+      "statusCode": 429
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_048",
+    "description": "Below minimum age; Above maximum age",
+    "timestamp": "2025-08-06T12:45:25.597450",
+    "request": {
+      "username": "validuser01",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 100,
+      "deviceID": "abc123xyz0",
+      "uuid": "1e7baa11-f4c6-426d-9430-c010f8917e52"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "age",
+          "message": "Below minimum age"
+        },
+        {
+          "field": "age",
+          "message": "Above maximum age"
+        }
+      ],
+      "data": null,
+      "statusCode": 500
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_049",
+    "description": "Too short; Too short; Special characters not allowed",
+    "timestamp": "2025-08-06T12:45:25.597482",
+    "request": {
+      "username": "validuser01",
+      "password": "short",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "invalid##ID",
+      "uuid": "24ec6f4b-d494-45ee-bf71-4983f0b0949c"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "deviceID",
+          "message": "Too short"
+        },
+        {
+          "field": "password",
+          "message": "Too short"
+        },
+        {
+          "field": "deviceID",
+          "message": "Special characters not allowed"
+        }
+      ],
+      "data": null,
+      "statusCode": 501
+    },
+    "expectedResult": "Failed"
+  },
+  {
+    "testCaseID": "TC_INVALID_050",
+    "description": "Too short; Too long",
+    "timestamp": "2025-08-06T12:45:25.597505",
+    "request": {
+      "username": "toolongusername123456",
+      "password": "StrongPass123",
+      "email": "valid.user@example.com",
+      "age": 30,
+      "deviceID": "abc123xyz0",
+      "uuid": "610c619b-f864-4850-9de4-773ce7090276"
+    },
+    "response": {
+      "status": "Failed",
+      "message": "Validation or processing error",
+      "errors": [
+        {
+          "field": "username",
+          "message": "Too short"
+        },
+        {
+          "field": "username",
+          "message": "Too long"
+        }
+      ],
+      "data": null,
+      "statusCode": 503
+    },
+    "expectedResult": "Failed"
+  }
+]

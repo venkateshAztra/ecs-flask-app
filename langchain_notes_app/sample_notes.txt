@@ -1,0 +1,5 @@
+LangChain is a framework to build LLM-powered apps.
+It provides tools for document loading, splitting, embeddings, and vector search.
+Retrieval-Augmented Generation (RAG) helps LLMs access external knowledge.
+You can combine local files, databases, or APIs with LLMs using LangChain.
+OpenAI, HuggingFace, and Cohere are common embedding providers.

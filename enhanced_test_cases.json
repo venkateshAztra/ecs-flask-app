@@ -1,0 +1,352 @@
+[
+  {
+    "testCaseID": "TC001",
+    "description": "Valid data - happy path",
+    "request": {
+      "username": "smontgomery",
+      "password": "Ca2@ITnC",
+      "email": "joseph82@example.com",
+      "Age": 37,
+      "deviceID": "GO6tg5vGOE"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "userId": "USR28347",
+      "code": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC001",
+    "description": "Valid data - happy path",
+    "request": {
+      "username": "edgarhenderson",
+      "password": "Oy8@2S9b",
+      "email": "wolfdaniel@example.net",
+      "Age": 80,
+      "deviceID": "5OddZcQidY"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "userId": "USR94792",
+      "code": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC001",
+    "description": "Valid data - happy path",
+    "request": {
+      "username": "mary68",
+      "password": "Hv6!6Fzk",
+      "email": "tammycrawford@example.com",
+      "Age": 24,
+      "deviceID": "YItoJakmQv"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "userId": "USR80530",
+      "code": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC001",
+    "description": "Valid data - happy path",
+    "request": {
+      "username": "fordkathryn",
+      "password": "Ka2@51IH",
+      "email": "donald61@example.org",
+      "Age": 63,
+      "deviceID": "Ddh1idtClg"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "userId": "USR75690",
+      "code": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC001",
+    "description": "Valid data - happy path",
+    "request": {
+      "username": "srichards",
+      "password": "He7#xXAk",
+      "email": "kemprobert@example.net",
+      "Age": 97,
+      "deviceID": "rKqPTZPBSI"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "userId": "USR68492",
+      "code": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC001",
+    "description": "Valid data - happy path",
+    "request": {
+      "username": "mayodavid",
+      "password": "Ds7$lJMH",
+      "email": "gpeters@example.org",
+      "Age": 98,
+      "deviceID": "QQIjNVQfp1"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "userId": "USR17206",
+      "code": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC001",
+    "description": "Valid data - happy path",
+    "request": {
+      "username": "neil90",
+      "password": "Ce1&hMjl",
+      "email": "hamiltonkimberly@example.com",
+      "Age": 92,
+      "deviceID": "3kzAFeprZ5"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "userId": "USR26372",
+      "code": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC001",
+    "description": "Valid data - happy path",
+    "request": {
+      "username": "mgonzales",
+      "password": "Ae8@QYhi",
+      "email": "kelly59@example.net",
+      "Age": 44,
+      "deviceID": "v8pUYHn6RL"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "userId": "USR26335",
+      "code": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC001",
+    "description": "Valid data - happy path",
+    "request": {
+      "username": "ldurham",
+      "password": "Ix9%1YxF",
+      "email": "matthew51@example.com",
+      "Age": 31,
+      "deviceID": "QotjgDHvR2"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "userId": "USR63865",
+      "code": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC001",
+    "description": "Valid data - happy path",
+    "request": {
+      "username": "josephalvarez",
+      "password": "Uj1@A9GD",
+      "email": "zfischer@example.org",
+      "Age": 46,
+      "deviceID": "DdEDO64n4a"
+    },
+    "response": {
+      "status": "success",
+      "message": "User registered successfully",
+      "userId": "USR51027",
+      "code": 200
+    },
+    "expectedResult": "Success"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Invalid data - multiple field errors",
+    "request": {
+      "username": "rsilva@!#",
+      "password": "password",
+      "email": "nrobinsongmail.com",
+      "Age": 150,
+      "deviceID": "dev#123456"
+    },
+    "response": {
+      "status": "error",
+      "message": "Username must be alphanumeric and 5\u201315 chars; Password must include upper, lower, digit, special and be at least 8 chars; Email must contain @ symbol; Age must be an integer between 18 and 100; Device ID must be exactly 10 alphanumeric chars",
+      "code": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Invalid data - multiple field errors",
+    "request": {
+      "username": "cmckee@!#",
+      "password": "password",
+      "email": "ramirezvincentgmail.com",
+      "Age": -5,
+      "deviceID": "dev#123456"
+    },
+    "response": {
+      "status": "error",
+      "message": "Username must be alphanumeric and 5\u201315 chars; Password must include upper, lower, digit, special and be at least 8 chars; Email must contain @ symbol; Age must be an integer between 18 and 100; Device ID must be exactly 10 alphanumeric chars",
+      "code": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Invalid data - multiple field errors",
+    "request": {
+      "username": "kathyayala@!#",
+      "password": "password",
+      "email": "christopher64gmail.com",
+      "Age": "twenty",
+      "deviceID": "dev#123456"
+    },
+    "response": {
+      "status": "error",
+      "message": "Username must be alphanumeric and 5\u201315 chars; Password must include upper, lower, digit, special and be at least 8 chars; Email must contain @ symbol; Age must be an integer between 18 and 100; Device ID must be exactly 10 alphanumeric chars",
+      "code": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Invalid data - multiple field errors",
+    "request": {
+      "username": "ann76@!#",
+      "password": "password",
+      "email": "cstronggmail.com",
+      "Age": "twenty",
+      "deviceID": "dev#123456"
+    },
+    "response": {
+      "status": "error",
+      "message": "Username must be alphanumeric and 5\u201315 chars; Password must include upper, lower, digit, special and be at least 8 chars; Email must contain @ symbol; Age must be an integer between 18 and 100; Device ID must be exactly 10 alphanumeric chars",
+      "code": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Invalid data - multiple field errors",
+    "request": {
+      "username": "hensleymonica@!#",
+      "password": "password",
+      "email": "nhallgmail.com",
+      "Age": -5,
+      "deviceID": "dev#123456"
+    },
+    "response": {
+      "status": "error",
+      "message": "Username must be alphanumeric and 5\u201315 chars; Password must include upper, lower, digit, special and be at least 8 chars; Email must contain @ symbol; Age must be an integer between 18 and 100; Device ID must be exactly 10 alphanumeric chars",
+      "code": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Invalid data - multiple field errors",
+    "request": {
+      "username": "mcox@!#",
+      "password": "password",
+      "email": "tiffanyandersongmail.com",
+      "Age": -5,
+      "deviceID": "dev#123456"
+    },
+    "response": {
+      "status": "error",
+      "message": "Username must be alphanumeric and 5\u201315 chars; Password must include upper, lower, digit, special and be at least 8 chars; Email must contain @ symbol; Age must be an integer between 18 and 100; Device ID must be exactly 10 alphanumeric chars",
+      "code": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Invalid data - multiple field errors",
+    "request": {
+      "username": "lyonsjennifer@!#",
+      "password": "password",
+      "email": "irodriguezgmail.com",
+      "Age": "twenty",
+      "deviceID": "dev#123456"
+    },
+    "response": {
+      "status": "error",
+      "message": "Username must be alphanumeric and 5\u201315 chars; Password must include upper, lower, digit, special and be at least 8 chars; Email must contain @ symbol; Age must be an integer between 18 and 100; Device ID must be exactly 10 alphanumeric chars",
+      "code": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Invalid data - multiple field errors",
+    "request": {
+      "username": "kimjessica@!#",
+      "password": "password",
+      "email": "davisericgmail.com",
+      "Age": "twenty",
+      "deviceID": "dev#123456"
+    },
+    "response": {
+      "status": "error",
+      "message": "Username must be alphanumeric and 5\u201315 chars; Password must include upper, lower, digit, special and be at least 8 chars; Email must contain @ symbol; Age must be an integer between 18 and 100; Device ID must be exactly 10 alphanumeric chars",
+      "code": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Invalid data - multiple field errors",
+    "request": {
+      "username": "jacob86@!#",
+      "password": "password",
+      "email": "ljacksongmail.com",
+      "Age": "twenty",
+      "deviceID": "dev#123456"
+    },
+    "response": {
+      "status": "error",
+      "message": "Username must be alphanumeric and 5\u201315 chars; Password must include upper, lower, digit, special and be at least 8 chars; Email must contain @ symbol; Age must be an integer between 18 and 100; Device ID must be exactly 10 alphanumeric chars",
+      "code": 400
+    },
+    "expectedResult": "Failure"
+  },
+  {
+    "testCaseID": "TC011",
+    "description": "Invalid data - multiple field errors",
+    "request": {
+      "username": "thomas80@!#",
+      "password": "password",
+      "email": "daniel40gmail.com",
+      "Age": -5,
+      "deviceID": "dev#123456"
+    },
+    "response": {
+      "status": "error",
+      "message": "Username must be alphanumeric and 5\u201315 chars; Password must include upper, lower, digit, special and be at least 8 chars; Email must contain @ symbol; Age must be an integer between 18 and 100; Device ID must be exactly 10 alphanumeric chars",
+      "code": 400
+    },
+    "expectedResult": "Failure"
+  }
+]
